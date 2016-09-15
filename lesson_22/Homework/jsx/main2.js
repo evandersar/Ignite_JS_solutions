@@ -38,3 +38,5 @@ let users = [user1, user2, user3]
 alert('open console to inspect users array');
 console.log(users);
 //user1.sayHi(); // Вася
+
+//export {users};

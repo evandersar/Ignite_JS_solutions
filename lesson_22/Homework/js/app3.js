@@ -76,6 +76,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//import {users} from './main2';
+
 	var Counter = function (_React$Component) {
 	    (0, _inherits3.default)(Counter, _React$Component);
 
@@ -93,11 +95,10 @@
 
 	    (0, _createClass3.default)(Counter, [{
 	        key: 'tick',
-	        value: function tick() {
-	            //this.setState({count: this.state.count + 1});
-	            //user2.sayHi();
-	            this.props.results[0].sayHi();
-	            //alert('hi');
+	        value: function tick(e) {
+	            if (e.target.id) {
+	                this.props.results[e.target.id].sayHi();
+	            }
 	        }
 	    }, {
 	        key: 'render',
@@ -109,7 +110,7 @@
 	                    { key: i },
 	                    _react2.default.createElement(
 	                        'td',
-	                        { /*PROBLEM!!!*/onClick: this.tick() },
+	                        { id: i },
 	                        result.firstName
 	                    ),
 	                    _react2.default.createElement(
@@ -141,7 +142,7 @@
 	            });
 	            return _react2.default.createElement(
 	                'table',
-	                { onClick: this.tick() },
+	                { onClick: this.tick },
 	                _react2.default.createElement(
 	                    'tbody',
 	                    null,

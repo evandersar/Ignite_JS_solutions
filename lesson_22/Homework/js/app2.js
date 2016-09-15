@@ -128,6 +128,8 @@
 	console.log(users);
 	//user1.sayHi(); // Вася
 
+	//export {users};
+
 /***/ },
 /* 1 */,
 /* 2 */,
