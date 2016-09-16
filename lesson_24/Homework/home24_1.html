@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="css/main.css" rel="stylesheet" />
+    <title>Declarative Routing</title>
+<!--
+### Задача 1 
+Создайте приложение с тремя страницами: 
+* главной страницей, соответстующей React компоненту App, содержащему 2 кнопки (ListView, TableView), реализующие переход по соответственным путям (“/listView”, “tableView”) 
+* страницей, отображающей массив users в виде списка(listView).  Для списка используйте свойства элементов массива users first_name и last_name
+* страницей, отображающей массив users в виде таблицы(tableView). Для 2nf,таблицы используйте свойства элементов массива users first_name, last_name и gender. 
+Массив users для задачи: 
+```
+var users = [{first_name:"Matthew",last_name:"Phillips",email:"mphillips0@myspace.com",gender:"Male",ip_address:"14.241.172.154", id:23468},
+{first_name:"Larry",last_name:"Weaver",email:"lweaver1@slideshare.net",gender:"Male",ip_address:"126.139.9.128", id:89078},
+{first_name:"Barbara",last_name:"Tucker",email:"btucker2@cbc.ca",gender:"Female",ip_address:"92.195.229.16", id: 56435},
+{first_name:"Jonathan",last_name:"Cook",email:"jcook3@fc2.com",gender:"Male",ip_address:"187.79.225.71", id:78908},
+{first_name:"Jean",last_name:"Flores",email:"jflores4@last.fm",gender:"Female",ip_address:"222.197.158.249, id:67653"},
+{first_name:"Kimberly",last_name:"Nelson",email:"knelson5@nifty.com",gender:"Female",ip_address:"111.174.89.57", id:83425},
+{first_name:"Willie",last_name:"Banks",email:"wbanks6@abc.net.au",gender:"Male",ip_address:"97.0.19.154", id:99873},
+{first_name:"Michael",last_name:"King",email:"mking7@w3.org",gender:"Male",ip_address:"149.114.62.6"}, id: 34239]
+```
+-->
+<style>
+	td{
+		border: 1px solid;
+		padding: 5px;
+	}
+	thead{
+		font-weight: bold; 
+	}
+</style>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="js/app1.js"></script>
+</body>
+</html>
