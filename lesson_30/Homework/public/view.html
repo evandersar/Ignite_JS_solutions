@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>View 1</title>
+    <script>
+
+			window.onload = function() {
+
+				var users = [
+				{ name: 'Jane', age: 23 }, { name: 'John', age: 30 }, { name: 'Vasya', age: 25 },
+				{ name: 'Yvonne', age: 34 }, { name: 'Will', age: 18 }, {name: 'Jack', age: 26}
+				];
+
+				var ol = document.getElementById('my_ol');
+
+				for (i = 0; i < users.length; i++) {
+	                
+	                var li = document.createElement('li')
+	                li.id = i;
+	                li.innerHTML =  users[i].name;
+	                ol.appendChild(li);
+
+            	}
+
+				function makeRequest(e) {
+					var xhr = new XMLHttpRequest();
+					xhr.open('GET', 'users/' + e.target.id);
+
+					xhr.onload = function() {
+						var id = this.responseText;
+						document.getElementById('output').innerHTML += `Name: ${users[id].name} &nbsp&nbsp Age: ${users[id].age}` + '<br/>';
+					};
+
+					xhr.send();
+				}
+
+				ol.onclick = makeRequest;
+
+			}
+    </script>
+</head>
+<body>
+    <ol id="my_ol"></ol>
+    <h2 id="output">User info: <br/></h2>
+</body>
+</html>
