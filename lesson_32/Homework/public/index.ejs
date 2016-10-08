@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />   
+<style type="text/css">
+.btn {
+	margin: 0 20px; 
+}
+</style>
+<title>App</title>
+<script>
+				window.onload = function() {
+
+					var edit_but = document.getElementById("edit");
+					var delete_but = document.getElementById("delete");
+
+					function makeEditRequest() {
+						var item_id = document.getElementById("item_id").value;
+						// запрос для редактирования элемента 
+						if(item_id){
+							var xhr = new XMLHttpRequest(); 
+							xhr.open('GET', '/editItem/' + item_id); 
+							xhr.send();
+							location.href = 'http://localhost:1337/editItem/' + item_id;
+						}
+					}
+
+					function makeDelRequest() {
+						var item_id = document.getElementById("item_id").value;
+						// запрос для удаления элемента 
+						if(item_id){
+							var xhr = new XMLHttpRequest(); 
+							xhr.open('DELETE', '/' + item_id); 
+							xhr.send(); 
+						}
+					}
+
+					edit_but.onclick = makeEditRequest;
+					delete_but.onclick = makeDelRequest;
+
+				}
+</script>
+</head> 
+	
+<body> 
+<a href="addItem" class="btn btn-lg btn-info">Add item!</a>
+<a class="btn btn-lg btn-info" id="edit">Edit item!</a>
+<input type="text" id="item_id" placeholder="Item ID"/>
+<a href="/" class="btn btn-lg btn-info" id="delete">Delete item!</a>
+
+	<div class="panel panel-primary">
+        <table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Info</th> 
+				</tr>
+			</thead>
+			<tbody>
+				<%- data %>
+			</tbody>
+		</table> 
+	</div>
+</body>
+</html>

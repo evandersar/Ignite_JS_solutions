@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+
+<head> 
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<title>Make Requests!</title> 
+<style>
+div {
+	margin-top: 25px; 
+}
+</style>
+<script>
+	
+window.onload = function() {
+	var btn = document.getElementsByTagName('button')[0]; 
+
+	// отправка POST запроса 
+	function makeRequest() {
+
+		var item_name = document.getElementById("name").value;
+		var item_info = document.getElementById("info").value;
+
+		if (item_name || item_info){
+
+			var postReq = new XMLHttpRequest(); 
+			postReq.open('POST','/addItem'); 
+			postReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+
+			var str1 = encodeURIComponent(item_name);
+			var str2 = encodeURIComponent(item_info);  
+			console.log(str1);
+			console.log(str2);
+			postReq.send(`text=${str1};${str2}`);
+
+		} 
+	}
+
+	btn.onclick = makeRequest;
+}
+
+</script>
+</head> 
+	
+<body> 
+	
+	<div class='container'>
+		<h2>Press button to add item!</h2>
+
+		<div><input type="text" id="name" placeholder="Item name"/></div>
+		<div><input type="text" id="info" placeholder="Item info"/></div>
+
+		<div><a href="/"><button class="btn-success btn btn-lg">ADD ITEM</button></a></div> 
+	</div>
+
+</body>
+</html>
